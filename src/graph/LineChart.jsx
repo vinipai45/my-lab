@@ -1,6 +1,7 @@
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
+import './graph.css'
 
 
 let options = {
@@ -60,14 +61,14 @@ let options = {
     responsive: {
         rules: [{
             condition: {
-                maxWidth: 500
+                maxWidth: 500,
             },
             chartOptions: {
                 legend: {
                     layout: 'horizontal',
                     align: 'center',
                     verticalAlign: 'bottom'
-                }
+                },
             }
         }]
     }

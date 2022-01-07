@@ -1,3 +1,7 @@
-._pie_chart_main{
-    max-width: 500px;
+._chart_main{
+    width:45%;
+}
+
+.highcharts-credits{
+    display: none !important;
 }

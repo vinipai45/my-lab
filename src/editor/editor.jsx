@@ -1,6 +1,7 @@
 import React from "react";
 import { createReactEditorJS } from 'react-editor-js'
 import { EDITOR_JS_TOOLS } from "./constants";
+import './editor.css'
 
 const ReactEditorJS = createReactEditorJS()
 const ReactEditor = () => {

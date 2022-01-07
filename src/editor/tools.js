@@ -38,7 +38,7 @@ export default class Chart {
         ReactDOM.render(
             (
                 // <EventChart />
-                <RenderChart type='column_line' />
+                <RenderChart type='line' />
             ),
             rootNode);
 
