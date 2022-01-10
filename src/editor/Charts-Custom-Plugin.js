@@ -1,18 +1,16 @@
-import { default as React } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import RenderChart from './RenderChart';
+// import Charts from './RenderCharts';
+import Googlesheets from "./Google-sheets";
+import CustomDrawer from "./drawer";
 
 
-export default class Chart {
-
-    static get toolbox() {
-        return {
-            icon: `<i class="far fa-chart-bar"></i>`,
-            title: 'Chart',
-        };
-    }
-
+export default class Chart extends React.Component {
     constructor({ data, api, readOnly }) {
+        super()
+        this.state = {
+            openGraph: false
+        };
         this.api = api;
         this.readOnly = readOnly;
         this.data = {
@@ -21,6 +19,19 @@ export default class Chart {
 
         this.nodes = {
             holder: null,
+        };
+    }
+
+    setOpenGraph = () => {
+        this.setState({
+            openGraph: true
+        })
+    }
+
+    static get toolbox() {
+        return {
+            icon: `<i onClick={this.setOpenGraph} class="far fa-chart-bar"></i>`,
+            title: 'Chart',
         };
     }
 
@@ -36,7 +47,15 @@ export default class Chart {
 
         ReactDOM.render(
             (
-                <RenderChart type='line' />
+                <div>
+                    <CustomDrawer
+                        openDrawer={this.state.openGraph}
+                        setOpenDrawer={this.setOpenGraph}
+                        title="add Graph"
+                    >
+                        <Googlesheets />
+                    </CustomDrawer>
+                </div>
             ),
             rootNode);
 

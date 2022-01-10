@@ -21,5 +21,5 @@ export const EDITOR_JS_TOOLS = {
   checklist: CheckList,
   inlineCode: InlineCode,
   simpleImage: SimpleImage,
-  graph: Graph
+  graph: Graph,
 };
