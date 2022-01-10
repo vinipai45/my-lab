@@ -7,9 +7,9 @@ const RenderChart = ({ type, data }) => {
     return (
         <div>
             {
-                type === 'column' ? (<ColumnChart />) :
-                    type === 'line' ? (<LineChart />) :
-                        type === 'column_line' ? (<ColumnLineChart />) :
+                type === 'column' ? (<ColumnChart data={ data}/>) :
+                    type === 'line' ? (<LineChart data={ data}/>) :
+                        type === 'column_line' ? (<ColumnLineChart data={ data}/>) :
                             <></>
             }
         </div>
