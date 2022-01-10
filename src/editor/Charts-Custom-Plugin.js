@@ -19,7 +19,6 @@ export default class Chart {
             events: data.events || [],
         };
 
-
         this.nodes = {
             holder: null,
         };
@@ -37,7 +36,6 @@ export default class Chart {
 
         ReactDOM.render(
             (
-                // <EventChart />
                 <RenderChart type='line' />
             ),
             rootNode);
