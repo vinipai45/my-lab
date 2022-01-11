@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import Charts from './RenderCharts';
+// import RenderCharts from "./RenderCharts";
 import Googlesheets from "./Google-sheets";
 import CustomDrawer from "./drawer";
 
 export default class Chart extends React.Component {
   static get toolbox() {
     return {
-      icon: `<i id='graphIcon' class="far fa-chart-bar"></i>`,
+      icon: <i id="graphIcon" class="far fa-chart-bar"></i>,
       title: "Chart",
     };
   }
@@ -19,15 +19,17 @@ export default class Chart extends React.Component {
     };
     this.api = api;
     this.readOnly = readOnly;
-    this.data = {
-      events: data.events || [],
-    };
-
+    // this.data = {
+    //     events: data.events || [],
+    // };
+    this.data = data;
     this.nodes = {
       holder: null,
     };
     this.attachEventListnerToGraph = this.attachEventListnerToGraph.bind(this);
     this.setOpenGraph = this.setOpenGraph.bind(this);
+
+    console.log(this.data, "data");
   }
 
   componentDidMount() {
@@ -47,12 +49,12 @@ export default class Chart extends React.Component {
     console.log("setState");
   };
 
-  attachEventListnerToGraph() {
+  attachEventListnerToGraph = () => {
     const element = document.getElementById("graphIcon");
     if (element) {
       element.addEventListener("click", this.setOpenGraph);
     }
-  }
+  };
 
   render() {
     const rootNode = document.createElement("div");

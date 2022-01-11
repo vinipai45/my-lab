@@ -8,7 +8,7 @@ import Marker from "@editorjs/marker";
 import CheckList from "@editorjs/checklist";
 import InlineCode from "@editorjs/inline-code";
 import SimpleImage from "@editorjs/simple-image";
-import Graph from "./Charts-Custom-Plugin";
+import Chart from "./Charts-Custom-Plugin";
 
 export const EDITOR_JS_TOOLS = {
   header: Header,
@@ -21,5 +21,5 @@ export const EDITOR_JS_TOOLS = {
   checklist: CheckList,
   inlineCode: InlineCode,
   simpleImage: SimpleImage,
-  graph: Graph,
+  graph: Chart,
 };
