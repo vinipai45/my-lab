@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Charts from './RenderCharts';
+import RenderCharts from './RenderCharts';
 import Googlesheets from "./Google-sheets";
 import CustomDrawer from "./drawer";
 
@@ -12,6 +12,7 @@ export default class Chart extends React.Component {
             title: 'Chart',
         };
     }
+
     constructor({ data, api, readOnly }) {
         super()
         this.state = {
@@ -19,15 +20,17 @@ export default class Chart extends React.Component {
         };
         this.api = api;
         this.readOnly = readOnly;
-        this.data = {
-            events: data.events || [],
-        };
-
+        // this.data = {
+        //     events: data.events || [],
+        // };
+        this.data = data
         this.nodes = {
             holder: null,
         };
         this.attachEventListnerToGraph = this.attachEventListnerToGraph.bind(this)
         this.setOpenGraph = this.setOpenGraph.bind(this)
+
+        console.log(this.data, "data")
     }
 
     componentDidMount() {
@@ -68,16 +71,18 @@ export default class Chart extends React.Component {
 
         ReactDOM.render(
             (
-                <div>
-                    <CustomDrawer
-                        openDrawer={this.state.openGraph}
-                        setOpenDrawer={this.setOpenGraph}
-                        title="add Graph"
-                    >
-                        <Googlesheets />
-                    </CustomDrawer>
-                </div>
+                // <div>
+                //     <CustomDrawer
+                //         openDrawer={this.state.openGraph}
+                //         setOpenDrawer={this.setOpenGraph}
+                //         title="add Graph"
+                //     >
+                //         <Googlesheets />
+                //     </CustomDrawer>
+                // </div>
+                <RenderCharts type={this.data.chart_type} />
             ),
+
             rootNode);
 
         return this.nodes.holder;

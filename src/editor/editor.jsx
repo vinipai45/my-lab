@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { createReactEditorJS } from 'react-editor-js'
 import { EDITOR_JS_TOOLS } from "./constants";
 import './editor.scss'
 
 const ReactEditorJS = createReactEditorJS()
+
 const ReactEditor = () => {
+
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   return (
     <div style={{ border: '1px solid #000' }}>
@@ -49,7 +52,10 @@ const ReactEditor = () => {
               }
             },
             {
-              type: "graph"
+              type: "graph",
+              data: {
+                chart_type: "column_line", //line,column,column_line
+              },
             },
           ],
           version: "2.12.4"
