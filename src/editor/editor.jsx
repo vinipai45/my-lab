@@ -10,7 +10,8 @@ const ReactEditor = () => {
     <div style={{ border: '1px solid #000' }}>
 
       <ReactEditorJS
-        tools={EDITOR_JS_TOOLS}
+        tools={EDITOR_JS_TOOLS
+        }
         i18n={{
           messages: {}
         }}
