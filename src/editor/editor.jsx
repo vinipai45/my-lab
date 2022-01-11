@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createReactEditorJS } from 'react-editor-js'
 import { EDITOR_JS_TOOLS } from "./constants";
 import './editor.scss'
@@ -6,9 +6,7 @@ import './editor.scss'
 const ReactEditorJS = createReactEditorJS()
 
 const ReactEditor = () => {
-
-  const [openDrawer, setOpenDrawer] = useState(false)
-
+// const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <div style={{ border: '1px solid #000' }}>
 

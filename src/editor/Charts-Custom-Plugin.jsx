@@ -7,7 +7,7 @@ import CustomDrawer from "./drawer";
 export default class Chart extends React.Component {
   static get toolbox() {
     return {
-      icon: <i id="graphIcon" class="far fa-chart-bar"></i>,
+      icon: `<i id="graphIcon" class="far fa-chart-bar"></i>`,
       title: "Chart",
     };
   }
@@ -75,9 +75,7 @@ export default class Chart extends React.Component {
         >
           <Googlesheets />
         </CustomDrawer>
-        {/* <Charts type="column" />
-            <Charts type="line" />
-            <Charts type="column_line" /> */}
+        {/* <RenderCharts type={this.data.chart_type} /> */}
       </div>,
       rootNode
     );
