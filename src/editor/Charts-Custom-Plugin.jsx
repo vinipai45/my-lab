@@ -1,91 +1,89 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // import Charts from './RenderCharts';
 import Googlesheets from "./Google-sheets";
 import CustomDrawer from "./drawer";
 
-
 export default class Chart extends React.Component {
-    static get toolbox() {
-        return {
-            icon: `<i id='graphIcon' class="far fa-chart-bar"></i>`,
-            title: 'Chart',
-        };
+  static get toolbox() {
+    return {
+      icon: `<i id='graphIcon' class="far fa-chart-bar"></i>`,
+      title: "Chart",
+    };
+  }
+
+  constructor({ data, api, readOnly }) {
+    super();
+    this.state = {
+      openGraph: false,
+    };
+    this.api = api;
+    this.readOnly = readOnly;
+    this.data = {
+      events: data.events || [],
+    };
+
+    this.nodes = {
+      holder: null,
+    };
+    this.attachEventListnerToGraph = this.attachEventListnerToGraph.bind(this);
+    this.setOpenGraph = this.setOpenGraph.bind(this);
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+    this.attachEventListnerToGraph();
+  }
+
+  openToolbar() {
+    this.api.toolbar.open();
+    console.log("open");
+  }
+
+  setOpenGraph = () => {
+    this.setState({
+      openGraph: true,
+    });
+    console.log("setState");
+  };
+
+  attachEventListnerToGraph() {
+    const element = document.getElementById("graphIcon");
+    if (element) {
+      element.addEventListener("click", this.setOpenGraph);
     }
-    constructor({ data, api, readOnly }) {
-        super()
-        this.state = {
-            openGraph: false
-        };
-        this.api = api;
-        this.readOnly = readOnly;
-        this.data = {
-            events: data.events || [],
-        };
+  }
 
-        this.nodes = {
-            holder: null,
-        };
-        this.attachEventListnerToGraph = this.attachEventListnerToGraph.bind(this)
-        this.setOpenGraph = this.setOpenGraph.bind(this)
-    }
+  render() {
+    const rootNode = document.createElement("div");
+    this.nodes.holder = rootNode;
 
-    componentDidMount() {
-        console.log('componentDidMount')
-        this.attachEventListnerToGraph()
-    }
+    // const onDataChange = (newData) => {
+    //     this.data = {
+    //         ...newData
+    //     };
+    // }
 
-    openToolbar() {
-        this.api.toolbar.open();
-        console.log('open')
-    }
-
-    setOpenGraph = () => {
-        this.setState({
-            openGraph: true
-        })
-        console.log('setState')
-    }
-
-    attachEventListnerToGraph = () => {
-        const element = document.getElementById("graphIcon")
-        if (element) {
-            element.addEventListener("click", this.setOpenGraph);
-        }
-    }
-
-
-
-    render() {
-        const rootNode = document.createElement('div');
-        this.nodes.holder = rootNode;
-
-        // const onDataChange = (newData) => {
-        //     this.data = {
-        //         ...newData
-        //     };
-        // }
-
-        ReactDOM.render(
-          <div>
-            <CustomDrawer
-              openDrawer={this.state.openGraph}
-              setOpenDrawer={this.setOpenGraph}
-              title="add Graph"
-            >
-              <Googlesheets />
-            </CustomDrawer>
-            {/* <Charts type="column" />
+    ReactDOM.render(
+      <div>
+        <CustomDrawer
+          openDrawer={this.state.openGraph}
+          setOpenDrawer={this.setOpenGraph}
+          title="add Graph"
+        >
+          <Googlesheets />
+        </CustomDrawer>
+        {/* <Charts type="column" />
             <Charts type="line" />
             <Charts type="column_line" /> */}
-          </div>,
-          rootNode
-        );
+      </div>,
+      rootNode
+    );
 
-        return this.nodes.holder;
-    }
+    return this.nodes.holder;
+  }
 
-    save() {
-        return this.data;
-    }
+  save() {
+    return this.data;
+  }
 }
