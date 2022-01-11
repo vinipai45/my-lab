@@ -1,7 +1,7 @@
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
-import './graph.css'
+import './graph.scss'
 
 export default function LineChart() {
     let options = {

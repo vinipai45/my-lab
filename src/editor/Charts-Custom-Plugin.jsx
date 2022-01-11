@@ -67,18 +67,20 @@ export default class Chart extends React.Component {
         // }
 
         ReactDOM.render(
-            (
-                <div>
-                    <CustomDrawer
-                        openDrawer={this.state.openGraph}
-                        setOpenDrawer={this.setOpenGraph}
-                        title="add Graph"
-                    >
-                        <Googlesheets />
-                    </CustomDrawer>
-                </div>
-            ),
-            rootNode);
+          <div>
+            <CustomDrawer
+              openDrawer={this.state.openGraph}
+              setOpenDrawer={this.setOpenGraph}
+              title="add Graph"
+            >
+              <Googlesheets />
+            </CustomDrawer>
+            {/* <Charts type="column" />
+            <Charts type="line" />
+            <Charts type="column_line" /> */}
+          </div>,
+          rootNode
+        );
 
         return this.nodes.holder;
     }

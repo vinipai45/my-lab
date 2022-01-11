@@ -1,13 +1,11 @@
-// import MyApp from "./my-lab";
 import Editor from "./editor/editor";
 
-function App() {
+const App = () => {
   return (
-    <div >
-      {/* <MyApp /> */}
+    <div>
       <Editor />
     </div>
   );
-}
+};
 
 export default App;
