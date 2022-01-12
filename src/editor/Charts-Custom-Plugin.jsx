@@ -4,9 +4,9 @@ import RenderCharts from './RenderCharts';
 import Googlesheets from "./Google-sheets";
 import CustomDrawer from "./drawer";
 
-
 export default class Chart extends React.Component {
     static get toolbox() {
+
         return {
             icon: `<i id='graphIcon' class="far fa-chart-bar"></i>`,
             title: 'Chart',
@@ -30,7 +30,7 @@ export default class Chart extends React.Component {
         this.attachEventListnerToGraph = this.attachEventListnerToGraph.bind(this)
         this.setOpenGraph = this.setOpenGraph.bind(this)
 
-        console.log(this.data, "data")
+        // console.log(this.data, "data")
     }
 
     componentDidMount() {
@@ -71,16 +71,15 @@ export default class Chart extends React.Component {
 
         ReactDOM.render(
             <div>
-                <CustomDrawer
+                {/* <CustomDrawer
                     openDrawer={this.state.openGraph}
                     setOpenDrawer={this.setOpenGraph}
                     title="add Graph"
                 >
                     <Googlesheets />
-                </CustomDrawer>
-                {/* <Charts type="column" />
-            <Charts type="line" />
-            <Charts type="column_line" /> */}
+                </CustomDrawer> */}
+
+                <RenderCharts type={this.data.chart_type} />
             </div>,
             rootNode
         );
