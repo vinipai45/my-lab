@@ -6,7 +6,6 @@ import './editor.scss'
 const ReactEditorJS = createReactEditorJS()
 
 const ReactEditor = () => {
-
   return (
     <div style={{ border: '1px solid #000' }}>
 
