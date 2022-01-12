@@ -68,20 +68,6 @@ export default class Chart extends React.Component {
 
         ReactDOM.render(
             <div>
-                <CustomDrawer
-                    openDrawer={this.state.openGraph}
-                    setOpenDrawer={this.setOpenGraph}
-                    title="add Graph"
-                >
-                    <Googlesheets />
-                </CustomDrawer>
-                {/* <RenderCharts type={this.data.chart_type} /> */}
-            </div>,
-            rootNode
-        );
-
-        ReactDOM.render(
-            <div>
                 {/* <CustomDrawer
                     openDrawer={this.state.openGraph}
                     setOpenDrawer={this.setOpenGraph}
