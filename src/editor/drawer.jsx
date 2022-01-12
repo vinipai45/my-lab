@@ -1,6 +1,9 @@
-import { Box, Button, createStyles, Divider, Drawer, makeStyles, Typography,IconButton } from '@material-ui/core';
+import { useState } from 'react'
+import { Box, Button, createStyles, Divider, Drawer, makeStyles, Typography, IconButton } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import CloseSharpIcon from '@material-ui/icons/CloseSharp';
+
+
 const useStyles = makeStyles((theme) =>
   createStyles({
     drawerStyle: (props) => ({
@@ -81,8 +84,6 @@ const useStyles = makeStyles((theme) =>
 );
 const CustomDrawer = (props) => {
   const {
-    openDrawer,
-    setOpenDrawer,
     children,
     title,
     header,
@@ -103,6 +104,9 @@ const CustomDrawer = (props) => {
     color: '#373a3c',
     margin: 'auto 0px'
   }));
+
+  const [openDrawer, setOpenDrawer] = useState(true)
+
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
