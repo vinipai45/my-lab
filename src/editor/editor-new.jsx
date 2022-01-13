@@ -31,6 +31,7 @@ const Editor = (props) => {
       ejInstance.current.destroy();
       ejInstance.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ejInstance]);
 
   const initEditor = () => {
