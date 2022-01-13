@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import RenderCharts from "./RenderCharts";
-import Googlesheets from "./Google-sheets";
-import CustomDrawer from "./drawer";
+import RenderCharts from "../components/RenderCharts";
+
 
 export default class Chart extends React.Component {
-    static get toolbox() {
-        return {
-            icon: `<i id="graphIcon" class="far fa-chart-bar"></i>`,
-            title: "Chart",
-        };
-    }
+    // static get toolbox() {
+    //     return {
+    //         icon: `<i id="graphIcon" class="far fa-chart-bar"></i>`,
+    //         title: "Chart",
+    //     };
+    // }
 
     constructor({ data, api, readOnly }) {
         super();
@@ -60,20 +59,14 @@ export default class Chart extends React.Component {
         const rootNode = document.createElement("div");
         this.nodes.holder = rootNode;
 
-        // const onDataChange = (newData) => {
-        //     this.data = {
-        //         ...newData
-        //     };
-        // }
+        const onDataChange = (newData) => {
+            this.data = {
+                ...newData
+            };
+        }
 
         ReactDOM.render(
             <div>
-                {/* <CustomDrawer
-                    title="add Graph"
-                >
-                    <Googlesheets />
-                </CustomDrawer> */}
-
                 <RenderCharts type={this.data.chart_type} />
             </div>,
             rootNode
