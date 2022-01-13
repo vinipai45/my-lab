@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { default as React, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/header";
+import { Button } from "@material-ui/core";
+import { EDITOR_JS_TOOLS } from "./constants";
 
 const DEFAULT_INITIAL_DATA = () => {
   return {
@@ -12,6 +12,14 @@ const DEFAULT_INITIAL_DATA = () => {
         data: {
           text: "This is my awesome editor!",
           level: 1,
+        },
+      },
+      {
+        type: "image",
+        data: {
+          file: {
+            url: require("../download.png"),
+          },
         },
       },
     ],
@@ -49,15 +57,35 @@ const Editor = (props) => {
         setEditorData(content);
       },
       autofocus: true,
-      tools: {
-        header: Header,
-      },
+      tools: EDITOR_JS_TOOLS,
     });
   };
-
+ useEffect(() => {
+   console.log(editorData);
+ }, [editorData]);
   return (
     <React.Fragment>
       <div id={EDITTOR_HOLDER_ID}> </div>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => {
+          setEditorData({
+            ...editorData,
+            blocks: [
+              ...editorData.blocks,
+              {
+                type: "paragraph",
+                data: {
+                  text: "Clean data is useful to sanitize, validate and process on the backend.",
+                },
+              },
+            ],
+          });
+        }}
+      >
+        Set State
+      </Button>
     </React.Fragment>
   );
 };
