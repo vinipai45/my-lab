@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Editor from "./editor/editor";
 
@@ -7,11 +7,9 @@ const App = () => {
     <>
       <BrowserRouter>
         <Switch>
-
           <Route path="/" exact>
             <Editor />
           </Route>
-
         </Switch>
       </BrowserRouter>
     </>

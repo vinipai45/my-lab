@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import RenderCharts from "./RenderCharts";
+// import RenderCharts from "./RenderCharts";
 import Googlesheets from "./Google-sheets";
 import CustomDrawer from "./drawer";
 
