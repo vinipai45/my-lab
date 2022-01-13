@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import Editor from "./editor/editor";
+import Editor from "./editor/editor-new";
 
 const App = () => {
   return (
