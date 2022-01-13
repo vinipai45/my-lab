@@ -17,7 +17,7 @@ const DEFAULT_INITIAL_DATA = () => {
   };
 };
 
-const Editor = (props) => {
+const Editor = () => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
   const EDITTOR_HOLDER_ID = "editorjs";
@@ -43,7 +43,7 @@ const Editor = (props) => {
         ejInstance.current = editor;
       },
 
-      // OLD ONCHNAGE 
+      // OLD ONCHNAGE
       // onChange: async () => {
       //   let content = await this.editorjs.saver.save();
       //   // Put your logic here to save this data to your DB
@@ -51,31 +51,20 @@ const Editor = (props) => {
       //   console.log("content");
       // },
 
-
       // NEW ONCHANGE
       onChange: () => {
-        console.log("onChange called")
-
         editor.saver.save().then(data => {
-          console.log(data, "editor.saver.save()")
+          console.log(data, "data on change");
           setEditorData(data);
-
         })
-
-
-
-        // let content = await this.editorjs.saver.save();
-        // console.log(content, "content");
       },
-
-
-
-
       autofocus: true,
       tools: EDITOR_JS_TOOLS,
     });
   };
-  console.log(editorData);
+
+  console.log("Update", editorData);
+
   return (
     <React.Fragment>
       <div id={EDITTOR_HOLDER_ID}></div>
