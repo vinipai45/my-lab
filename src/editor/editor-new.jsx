@@ -5,7 +5,6 @@ import { EDITOR_JS_TOOLS } from "./constants";
 
 const DEFAULT_INITIAL_DATA = () => {
   return {
-    time: new Date().getTime(),
     blocks: [
       {
         type: "header",
@@ -14,23 +13,14 @@ const DEFAULT_INITIAL_DATA = () => {
           level: 1,
         },
       },
-      {
-        type: "image",
-        data: {
-          file: {
-            url: require("../download.png"),
-          },
-        },
-      },
     ],
   };
 };
 
-const EDITTOR_HOLDER_ID = "editorjs";
-
 const Editor = (props) => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
+  const EDITTOR_HOLDER_ID = "editorjs";
 
   // This will run only once
   useEffect(() => {
@@ -41,7 +31,7 @@ const Editor = (props) => {
       ejInstance.current.destroy();
       ejInstance.current = null;
     };
-  }, []);
+  }, [ejInstance]);
 
   const initEditor = () => {
     const editor = new EditorJS({
@@ -60,12 +50,10 @@ const Editor = (props) => {
       tools: EDITOR_JS_TOOLS,
     });
   };
- useEffect(() => {
-   console.log(editorData);
- }, [editorData]);
+  console.log(editorData);
   return (
     <React.Fragment>
-      <div id={EDITTOR_HOLDER_ID}> </div>
+      <div id={EDITTOR_HOLDER_ID}></div>
       <Button
         variant="contained"
         color="primary"
@@ -80,11 +68,38 @@ const Editor = (props) => {
                   text: "Clean data is useful to sanitize, validate and process on the backend.",
                 },
               },
+              {
+                type: "header",
+                data: {
+                  text: "Editor.js",
+                  level: 2,
+                },
+              },
+              {
+                type: "paragraph",
+                data: {
+                  text: "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.",
+                },
+              },
+              {
+                type: "paragraph",
+                data: {
+                  text: "Clean data is useful to sanitize, validate and process on the backend.",
+                },
+              },
+              {
+                type: "image",
+                data: {
+                  file: {
+                    url: require("../download.png"),
+                  },
+                },
+              },
             ],
           });
         }}
       >
-        Set State
+        Update
       </Button>
     </React.Fragment>
   );
