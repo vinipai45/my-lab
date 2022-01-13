@@ -45,6 +45,7 @@ const Editor = (props) => {
         let content = await this.editorjs.saver.save();
         // Put your logic here to save this data to your DB
         setEditorData(content);
+        console.log("content");
       },
       autofocus: true,
       tools: EDITOR_JS_TOOLS,
