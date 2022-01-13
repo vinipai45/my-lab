@@ -3,13 +3,13 @@ import { createReactEditorJS } from 'react-editor-js'
 import { EDITOR_JS_TOOLS } from "./constants";
 import './editor.scss'
 
-// https://www.youtube.com/watch?v=fJY-taFGc1o
+//https://www.youtube.com/watch?v=fJY-taFGc1o
 
 const ReactEditorJS = createReactEditorJS()
 
 const ReactEditor = () => {
   return (
-    <div style={{ border: '1px solid #000' }}>
+    <div style={{ margin: '30px' }}>
 
       <ReactEditorJS
         tools={EDITOR_JS_TOOLS}
@@ -30,7 +30,7 @@ const ReactEditor = () => {
               type: "paragraph",
               data: {
                 text:
-                  "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
+                  "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.",
               }
             },
             {
@@ -50,24 +50,24 @@ const ReactEditor = () => {
               }
             },
 
-            // {
-            //   type: "graph",
-            //   data: {
-            //     chart_type: "column",
-            //   },
-            // },
-            // {
-            //   type: "graph",
-            //   data: {
-            //     chart_type: "line",
-            //   },
-            // },
-            // {
-            //   type: "graph",
-            //   data: {
-            //     chart_type: "column_line",
-            //   },
-            // },
+            {
+              type: "graph",
+              data: {
+                chart_type: "column",
+              },
+            },
+            {
+              type: "graph",
+              data: {
+                chart_type: "line",
+              },
+            },
+            {
+              type: "graph",
+              data: {
+                chart_type: "column_line",
+              },
+            },
 
 
 

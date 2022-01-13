@@ -68,13 +68,13 @@ export default class Chart extends React.Component {
 
         ReactDOM.render(
             <div>
-                <CustomDrawer
+                {/* <CustomDrawer
                     title="add Graph"
                 >
                     <Googlesheets />
-                </CustomDrawer>
+                </CustomDrawer> */}
 
-                {/* <RenderCharts type={this.data.chart_type} /> */}
+                <RenderCharts type={this.data.chart_type} />
             </div>,
             rootNode
         );
