@@ -41,12 +41,35 @@ const Editor = (props) => {
       onReady: () => {
         ejInstance.current = editor;
       },
-      onChange: async () => {
-        let content = await this.editorjs.saver.save();
-        // Put your logic here to save this data to your DB
-        setEditorData(content);
-        console.log("content");
+
+      // OLD ONCHNAGE 
+      // onChange: async () => {
+      //   let content = await this.editorjs.saver.save();
+      //   // Put your logic here to save this data to your DB
+      //   setEditorData(content);
+      //   console.log("content");
+      // },
+
+
+      // NEW ONCHANGE
+      onChange: () => {
+        console.log("onChange called")
+
+        editor.saver.save().then(data => {
+          console.log(data, "editor.saver.save()")
+          setEditorData(data);
+
+        })
+
+
+
+        // let content = await this.editorjs.saver.save();
+        // console.log(content, "content");
       },
+
+
+
+
       autofocus: true,
       tools: EDITOR_JS_TOOLS,
     });
@@ -67,33 +90,6 @@ const Editor = (props) => {
                 type: "paragraph",
                 data: {
                   text: "Clean data is useful to sanitize, validate and process on the backend.",
-                },
-              },
-              {
-                type: "header",
-                data: {
-                  text: "Editor.js",
-                  level: 2,
-                },
-              },
-              {
-                type: "paragraph",
-                data: {
-                  text: "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.",
-                },
-              },
-              {
-                type: "paragraph",
-                data: {
-                  text: "Clean data is useful to sanitize, validate and process on the backend.",
-                },
-              },
-              {
-                type: "image",
-                data: {
-                  file: {
-                    url: require("../download.png"),
-                  },
                 },
               },
             ],
