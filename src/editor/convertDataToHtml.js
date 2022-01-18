@@ -16,7 +16,15 @@ const convertDataToHtml = (blocks) => {
                 convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
                 break;
             case "graph":
-                convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
+                convertedHtml += `<img class="img-fluid" src="${block.data.file.url}"/>`;
+                break;
+            case "linkTool":
+                convertedHtml += `<a href="${block.data.link}"/>`;
+                break;
+            case "checklist":
+                block.data.items.forEach(function (li) {
+                    convertedHtml += `<li>${li.text}</li>`;
+                });;
                 break;
             case "list":
                 convertedHtml += "<ul>";

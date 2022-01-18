@@ -13,24 +13,24 @@ const DEFAULT_INITIAL_DATA = () => {
           level: 1,
         },
       },
-      {
-        type: "graph",
-        data: {
-          chart_type: "column",
-        },
-      },
-      {
-        type: "graph",
-        data: {
-          chart_type: "line",
-        },
-      },
-      {
-        type: "graph",
-        data: {
-          chart_type: "column_line",
-        },
-      },
+      // {
+      //   type: "graph",
+      //   data: {
+      //     chart_type: "column",
+      //   },
+      // },
+      // {
+      //   type: "graph",
+      //   data: {
+      //     chart_type: "line",
+      //   },
+      // },
+      // {
+      //   type: "graph",
+      //   data: {
+      //     chart_type: "column_line",
+      //   },
+      // },
     ],
   };
 };
