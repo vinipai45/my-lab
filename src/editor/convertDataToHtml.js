@@ -36,6 +36,9 @@ const convertDataToHtml = (blocks) => {
             case "drawer":
                 console.log('Drawer rendered')
                 break;
+            case "table":
+                console.log('table');
+                break;
             default:
                 console.log("Unknown block type", block.type);
                 break;
