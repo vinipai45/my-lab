@@ -1,4 +1,4 @@
-export function convertDataToHtml(blocks) {
+const convertDataToHtml = (blocks) => {
     var convertedHtml = "";
     blocks.map(block => {
 
@@ -33,3 +33,5 @@ export function convertDataToHtml(blocks) {
     console.log(convertedHtml, 'convertedHtml')
     return convertedHtml;
 }
+
+export { convertDataToHtml }
