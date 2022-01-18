@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
 import { Button } from "@material-ui/core";
 import { EDITOR_JS_TOOLS } from "./constants";
+import { convertDataToHtml } from "./convertDataToHtml";
 
 const DEFAULT_INITIAL_DATA = () => {
   return {
@@ -20,7 +21,7 @@ const DEFAULT_INITIAL_DATA = () => {
 const Editor = () => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
-  const EDITTOR_HOLDER_ID = "editorjs";
+  const EDITOR_HOLDER_ID = "editorjs";
 
   // This will run only once
   useEffect(() => {
@@ -36,14 +37,14 @@ const Editor = () => {
 
   const initEditor = () => {
     const editor = new EditorJS({
-      holder: EDITTOR_HOLDER_ID,
+      holder: EDITOR_HOLDER_ID,
       logLevel: "ERROR",
       data: editorData,
       onReady: () => {
         ejInstance.current = editor;
       },
 
-      // OLD ONCHNAGE
+      // OLD ONCHANGE
       // onChange: async () => {
       //   let content = await this.editorjs.saver.save();
       //   // Put your logic here to save this data to your DB
@@ -54,8 +55,9 @@ const Editor = () => {
       // NEW ONCHANGE
       onChange: () => {
         editor.saver.save().then(data => {
-          console.log(data, "data on change");
+          console.log(data.blocks, "data on change");
           setEditorData(data);
+          convertDataToHtml(data.blocks);
         })
       },
       autofocus: true,
@@ -63,11 +65,9 @@ const Editor = () => {
     });
   };
 
-  console.log("Update", editorData);
-
   return (
     <React.Fragment>
-      <div id={EDITTOR_HOLDER_ID}></div>
+      <div id={EDITOR_HOLDER_ID}></div>
       <Button
         variant="contained"
         color="primary"
