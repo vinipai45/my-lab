@@ -1,9 +1,11 @@
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
+import HC_exporting from "highcharts/modules/exporting";
 import './graph.scss'
 
 export default function LineChart() {
+    HC_exporting(Highcharts);
     let options = {
 
         title: {
@@ -74,6 +76,7 @@ export default function LineChart() {
         }
 
     }
+
     return (
         <>
             <div className="_chart_main">

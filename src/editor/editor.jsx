@@ -45,24 +45,24 @@ const ReactEditor = () => {
         }
       },
 
-      // {
-      //   type: "graph",
-      //   data: {
-      //     chart_type: "column",
-      //   },
-      // },
-      // {
-      //   type: "graph",
-      //   data: {
-      //     chart_type: "line",
-      //   },
-      // },
-      // {
-      //   type: "graph",
-      //   data: {
-      //     chart_type: "column_line",
-      //   },
-      // },
+      {
+        type: "graph",
+        data: {
+          chart_type: "column",
+        },
+      },
+      {
+        type: "graph",
+        data: {
+          chart_type: "line",
+        },
+      },
+      {
+        type: "graph",
+        data: {
+          chart_type: "column_line",
+        },
+      },
 
 
 

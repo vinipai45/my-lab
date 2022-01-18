@@ -25,6 +25,9 @@ const convertDataToHtml = (blocks) => {
                 });
                 convertedHtml += "</ul>";
                 break;
+            case "drawer":
+                console.log('Drawer rendered')
+                break;
             default:
                 console.log("Unknown block type", block.type);
                 break;
