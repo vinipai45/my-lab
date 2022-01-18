@@ -1,5 +1,5 @@
 const convertDataToHtml = (blocks) => {
-    var convertedHtml = "";
+    let convertedHtml = "";
     blocks.map(block => {
 
         switch (block.type) {
