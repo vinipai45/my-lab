@@ -1,7 +1,6 @@
 const convertDataToHtml = (blocks) => {
-    let convertedHtml = "";
     blocks.map(block => {
-
+        let convertedHtml = "";
         switch (block.type) {
             case "header":
                 convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
@@ -34,7 +33,7 @@ const convertDataToHtml = (blocks) => {
                 convertedHtml += "</ul>";
                 break;
             case "drawer":
-                console.log('Drawer rendered')
+                console.log('Drawer')
                 break;
             case "table":
                 console.log('table');
@@ -43,9 +42,9 @@ const convertDataToHtml = (blocks) => {
                 console.log("Unknown block type", block.type);
                 break;
         }
+        console.log(convertedHtml)
+        return convertedHtml;
     });
-    console.log(convertedHtml, 'convertedHtml')
-    return convertedHtml;
 }
 
 export { convertDataToHtml }
