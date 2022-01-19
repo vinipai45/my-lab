@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 import HC_exporting from "highcharts/modules/exporting";
 import './graph.scss'
 
+// import ReactDOMServer from "react-dom/server";
+
 export default function LineChart() {
-    HC_exporting(Highcharts);
+
+    const chartRef = useRef()
+    const [svgString, setSvgString] = useState()
+
+    HC_exporting(Highcharts)
+    useEffect(() => {
+        setSvgString(chartRef.current.chart.getSVG())
+    }, [])
     let options = {
 
         title: {
@@ -76,12 +85,15 @@ export default function LineChart() {
         }
 
     }
-
+    // const line_chart_html = ReactDOMServer.renderToStaticMarkup(<HighchartsReact highcharts={Highcharts} options={options} />);
+    // console.log(line_chart_html, "line_chart_html")
     return (
         <>
             <div className="_chart_main">
-                <HighchartsReact highcharts={Highcharts} options={options} />
+                <HighchartsReact highcharts={Highcharts} options={options} ref={chartRef} />
+                {/* <img src={`data:image/svg+xml;utf8,${encodeURIComponent(svgString)}`} /> */}
             </div>
         </>
     );
+
 }

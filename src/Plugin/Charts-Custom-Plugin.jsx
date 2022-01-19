@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import RenderCharts from "../components/RenderCharts";
+import ReactDOMServer from "react-dom/server";
 
 
 export default class Chart extends React.Component {
-    // static get toolbox() {
-    //     return {
-    //         icon: `<i id="graphIcon" class="far fa-chart-bar"></i>`,
-    //         title: "Chart",
-    //     };
-    // }
+    static get toolbox() {
+        return {
+            icon: `<i class="fas fa-drafting-compass"></i>`,
+            title: "Chart",
+        };
+    }
 
     constructor({ data, api, readOnly }) {
         super();
@@ -65,9 +66,10 @@ export default class Chart extends React.Component {
             };
         }
 
+
         ReactDOM.render(
             <div>
-                <RenderCharts type={this.data.chart_type} />
+                <RenderCharts type="line" />
             </div>,
             rootNode
         );

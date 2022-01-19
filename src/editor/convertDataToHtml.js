@@ -36,9 +36,7 @@ const convertDataToHtml = (blocks) => {
                 console.log('Drawer')
                 break;
             case "table":
-                convertedHtml += `
-                <table border=1 cellpadding=10 style="border-collapse:collapse">
-                ${block.data.content.map((row, index) => {
+                convertedHtml += `<table border=1 cellpadding=10 style="border-collapse:collapse">${block.data.content.map((row, index) => {
                     if (block.data.withHeadings) {
                         if (index === 0) {
                             return `<tr>${row.map(item => {
@@ -54,9 +52,7 @@ const convertDataToHtml = (blocks) => {
                             return `<td>${item}</td>`
                         }).join('')}</tr>`
                     }
-                }).join('')}
-                </table>
-                `
+                }).join('')}</table>`
                 break;
             default:
                 console.log("Unknown block type", block.type);
