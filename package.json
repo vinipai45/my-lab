@@ -72,5 +72,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "editorjs-inline-font-family-tool": "^1.0.4",
+    "editorjs-inline-font-size-tool": "^1.0.1",
+    "editorjs-text-color-plugin": "^1.1.22"
   }
 }
