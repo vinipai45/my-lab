@@ -63,7 +63,6 @@ const Editor = () => {
 
       onChange: () => {
         editor.saver.save().then((data) => {
-          console.log(data.blocks, "data on change");
           setEditorData(data);
           convertDataToHtml(data.blocks);
         });
