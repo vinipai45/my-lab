@@ -21,7 +21,6 @@ function App() {
             // showUploadFolders: false,
             supportDrives: true,
             multiselect: true,
-
             // disableDefaultView: true,
             // customViews: customViewsArray, // custom view
         })
