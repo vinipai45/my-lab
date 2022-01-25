@@ -1,16 +1,18 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Editor from "./editor/editor-new";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import Editor from "./editor/editor-new";
+import Google from "./button";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Switch>
           <Route path="/" exact>
             <Editor />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Google/>
     </>
   );
 };
