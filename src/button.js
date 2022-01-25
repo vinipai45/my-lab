@@ -1,9 +1,11 @@
+import axios from 'axios';
 import { useEffect } from 'react';
 import useDrivePicker from 'react-google-drive-picker'
 
+import { gapi } from 'gapi-script';
 
 function App() {
-    const [openPicker, data, authResponse] = useDrivePicker();
+    const [openPicker, data, authResponse,] = useDrivePicker();
     // const customViewsArray = [new google.picker.DocsView()]; // custom view
     const handleOpenPicker = () => {
         openPicker({
@@ -11,10 +13,12 @@ function App() {
             developerKey: "AIzaSyDUdE47cYyovi8RXJAAxCtXydQe6TvCbfQ",
             viewId: "SPREADSHEETS",
             // token: token, // pass oauth token in case you already have one
-            showUploadView: true,
-            showUploadFolders: true,
+            showUploadView: false,
+            // showUploadFolders: false,
             supportDrives: true,
             multiselect: true,
+
+            // disableDefaultView: true,
             // customViews: customViewsArray, // custom view
         })
     }
@@ -22,9 +26,26 @@ function App() {
     useEffect(() => {
         // do anything with the selected/uploaded files
         if (data) {
-            data.docs.map(i => console.log(i.name))
+            data.docs.map(i => {
+                console.log(i)
+                // gapi.client.sheets.spreadsheets.values.get({
+                //     spreadsheetId: i.id,
+                //     range: ['A1']
+                // }).then((response) => {
+                //     var result = response.result;
+                //     var numRows = result.values ? result.values.length : 0;
+                //     console.log(`${numRows} rows retrieved.`);
+                // });
+                // axios.get(i.embedUrl).then(data => {
+
+                // })
+            })
         }
     }, [data])
+
+    useEffect(() => {
+        console.log(gapi, "gapi");
+    }, [])
 
 
     return (
