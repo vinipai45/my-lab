@@ -1,73 +1,72 @@
 <html>
 
-<head>
-  <title>Google Sheets API Quickstart</title>
-  <meta charset="utf-8" />
-</head>
+  <head>
+    <title>Google Sheets API Quickstart</title>
+    <meta charset="utf-8" />
+  </head>
 
-<body>
-  <p>Google Sheets API Quickstart</p>
+  <body>
+    <p>Google Sheets API Quickstart</p>
 
-  <!--Add buttons to initiate auth sequence and sign out-->
+    <!--Add buttons to initiate auth sequence and sign out-->
 
-  <div id="root"></div>
+    <div id="root"></div>
 
 
 
-  <pre id="content" style="white-space: pre-wrap;"></pre>
+    <pre id="content" style="white-space: pre-wrap;"></pre>
 
-  <script type="text/javascript">
-    // Client ID and API key from the Developer Console
-    var CLIENT_ID = '726641909222-0de6rerpfiafsai80sb0e5p1u6gjkiqi.apps.googleusercontent.com';
-    var API_KEY = 'AIzaSyAnbfJCxvgrxfjg6zNrDjmh0Br5tRuDls0';
+    <script type="text/javascript">
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '726641909222-0de6rerpfiafsai80sb0e5p1u6gjkiqi.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyAnbfJCxvgrxfjg6zNrDjmh0Br5tRuDls0';
 
-    // Array of API discovery doc URLs for APIs used by the quickstart
-    var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+        // Array of API discovery doc URLs for APIs used by the quickstart
+        var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 
-    // Authorization scopes required by the API; multiple scopes can be
-    // included, separated by spaces.
-    var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+        // Authorization scopes required by the API; multiple scopes can be
+        // included, separated by spaces.
+        var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 
-    /**
-     *  On load, called to load the auth2 library and API client library.
-     */
-    function handleClientLoad() {
-      gapi.load('client:auth2', initClient);
-    }
+        /**
+         *  On load, called to load the auth2 library and API client library.
+         */
+        function handleClientLoad() {
+          gapi.load('client:auth2', initClient);
+        }
 
-    /**
-     *  Initializes the API client library and sets up sign-in state
-     *  listeners.
-     */
-    function initClient() {
-      gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES
-      }).then(function () {
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        /**
+         *  Initializes the API client library and sets up sign-in state
+         *  listeners.
+         */
+        function initClient() {
+          gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+          }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance();
 
-        // Handle the initial sign-in state.
-        // updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          // Handle the initial sign-in state.
+          // updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 
-      }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
-      });
-    }
+        }, function (error) {
+          appendPre(JSON.stringify(error, null, 2));
+        });
+      }
 
-    function appendPre(message) {
-      var pre = document.getElementById('content');
-      var textContent = document.createTextNode(message + '\n');
-      pre.appendChild(textContent);
-    }
+        function appendPre(message) {
+          var pre = document.getElementById('content');
+          var textContent = document.createTextNode(message + '\n');
+          pre.appendChild(textContent);
+        }
 
-  </script>
-
-  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
-    onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-</body>
+</script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
+    </body>
 
 </html>
