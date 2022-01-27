@@ -3,8 +3,8 @@ import { gapi } from 'gapi-script';
 import { useEffect, useState } from 'react';
 import useDrivePicker from 'react-google-drive-picker'
 // import { gapi } from 'gapi-script';
-let CLIENT_ID = "487053781358-2jl9tlbjh3nn5c8mtldmqk652qo67l4o.apps.googleusercontent.com";
-let API_KEY = "AIzaSyDUdE47cYyovi8RXJAAxCtXydQe6TvCbfQ";
+let CLIENT_ID = "726641909222-0de6rerpfiafsai80sb0e5p1u6gjkiqi.apps.googleusercontent.com";
+let API_KEY = "AIzaSyAnbfJCxvgrxfjg6zNrDjmh0Br5tRuDls0";
 
 function App() {
     const [openPicker, data, authResponse,] = useDrivePicker();
